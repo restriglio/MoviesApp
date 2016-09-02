@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MoviesApp</string>
+    <string name="list_fragment_title">Movies List</string>
+    <string name="get_movies">Get Movies List</string>
 </resources>

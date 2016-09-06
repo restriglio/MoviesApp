@@ -45,19 +45,16 @@ public class MovieListFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.movie_list_fragment,container,false);
+        rootView = inflater.inflate(R.layout.movie_list_fragment, container, false);
         recyclerView = (RecyclerView) rootView.findViewById(R.id.my_recycler_view);
         recyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(getContext(), OrientationHelper.VERTICAL, false);
         recyclerView.setLayoutManager(mLayoutManager);
 
-        myDataset = Arrays.asList("Movie1","Movie2","Movie3","Movie4","Movie5","Movie6","Movie7","Movie8","Movie9","Movie10","Movie11","Movie12","Movie13");
+        myDataset = Arrays.asList("Movie1", "Movie2", "Movie3", "Movie4", "Movie5", "Movie6", "Movie7", "Movie8", "Movie9", "Movie10", "Movie11", "Movie12", "Movie13");
         listAdapter = new MoviesAdapter(myDataset);
         recyclerView.setAdapter(listAdapter);
 
         return rootView;
     }
-
-
-
 }

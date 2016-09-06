@@ -9,13 +9,13 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="base.apptrailers.mobile.globant.com.moviesapp.Activities.SplashActivity">
 
- <RelativeLayout
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content"
-     android:background="@drawable/appsplash"
-     android:layout_centerVertical="true"
-     android:layout_alignParentRight="true"
-     android:layout_alignParentEnd="true">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/appsplash">
 
- </RelativeLayout>
+    </RelativeLayout>
 </RelativeLayout>

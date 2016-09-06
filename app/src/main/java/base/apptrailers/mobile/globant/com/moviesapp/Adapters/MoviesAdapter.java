@@ -20,6 +20,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView infoText;
         public CardView cardView;
+
         public ViewHolder(View v) {
             super(v);
             infoText = (TextView) v.findViewById(R.id.info_text);
@@ -33,7 +34,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
 
     @Override
     public MoviesAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
-                                                   int viewType) {
+                                                       int viewType) {
 
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.movie_detail, parent, false);
         ViewHolder vh = new ViewHolder(v);

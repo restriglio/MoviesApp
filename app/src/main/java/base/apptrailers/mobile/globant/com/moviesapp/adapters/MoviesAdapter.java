@@ -1,4 +1,4 @@
-package base.apptrailers.mobile.globant.com.moviesapp.Adapters;
+package base.apptrailers.mobile.globant.com.moviesapp.adapters;
 
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -16,6 +16,7 @@ import base.apptrailers.mobile.globant.com.moviesapp.R;
  */
 public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder> {
     private List<String> mDataset;
+    private View.OnClickListener listener;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView infoText;
@@ -28,22 +29,22 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
         }
     }
 
-    public MoviesAdapter(List<String> myDataset) {
+    public MoviesAdapter(List<String> myDataset, View.OnClickListener listener) {
         mDataset = myDataset;
+        this.listener = listener;
     }
 
     @Override
     public MoviesAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
                                                        int viewType) {
-
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.movie_detail, parent, false);
-        ViewHolder vh = new ViewHolder(v);
-        return vh;
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.movie_item, parent, false);
+        return new ViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.infoText.setText(mDataset.get(position).toString());
+        holder.itemView.setOnClickListener(listener);
     }
 
     @Override

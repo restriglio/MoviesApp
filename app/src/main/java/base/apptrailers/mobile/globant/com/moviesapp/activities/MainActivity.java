@@ -1,4 +1,4 @@
-package base.apptrailers.mobile.globant.com.moviesapp.Activities;
+package base.apptrailers.mobile.globant.com.moviesapp.activities;
 
 import android.app.Activity;
 import android.app.FragmentTransaction;
@@ -7,13 +7,14 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 
-import base.apptrailers.mobile.globant.com.moviesapp.Fragments.MovieListFragment;
+import base.apptrailers.mobile.globant.com.moviesapp.fragments.MovieDetailFragment;
+import base.apptrailers.mobile.globant.com.moviesapp.fragments.MovieListFragment;
 import base.apptrailers.mobile.globant.com.moviesapp.R;
 
 /**
  * Created by raul.striglio on 01/09/16.
  */
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements MovieListFragment.CallBackInterface {
 
     private RelativeLayout showRelative;
     private FrameLayout contentPanel;
@@ -40,5 +41,15 @@ public class MainActivity extends Activity {
                 ft.commit();
             }
         });
+    }
+
+    @Override
+    public void loadMovieDetail() {
+        MovieDetailFragment movieDetailFragment = MovieDetailFragment.newInstance();
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.add(R.id.contentPanel, movieDetailFragment, movieDetailFragment.TAG);
+        ft.addToBackStack(movieDetailFragment.TAG);
+        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
+        ft.commit();
     }
 }

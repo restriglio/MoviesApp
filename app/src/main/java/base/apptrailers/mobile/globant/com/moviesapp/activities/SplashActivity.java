@@ -1,10 +1,8 @@
-package base.apptrailers.mobile.globant.com.moviesapp.Activities;
+package base.apptrailers.mobile.globant.com.moviesapp.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
-import base.apptrailers.mobile.globant.com.moviesapp.R;
 
 public class SplashActivity extends AppCompatActivity {
 

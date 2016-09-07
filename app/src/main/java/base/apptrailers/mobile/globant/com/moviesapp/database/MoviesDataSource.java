@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
-import base.apptrailers.mobile.globant.com.moviesapp.MoviesContract;
+import base.apptrailers.mobile.globant.com.moviesapp.provider.MoviesContract;
 import base.apptrailers.mobile.globant.com.moviesapp.model.Movie;
 
 

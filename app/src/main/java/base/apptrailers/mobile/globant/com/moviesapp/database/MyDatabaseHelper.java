@@ -4,7 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import base.apptrailers.mobile.globant.com.moviesapp.MoviesContract;
+import base.apptrailers.mobile.globant.com.moviesapp.provider.MoviesContract;
 
 /**
  * Created by raul.striglio on 02/09/16.

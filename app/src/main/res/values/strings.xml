@@ -9,5 +9,6 @@
     <string name="year_lbl">Year</string>
 
     <string name="sample_text">sdvsddsvsdv</string>
-
+    <!-- String to select data sourced provided by factory -->
+    <string name="provider_selected">Database</string>
 </resources>

@@ -1,4 +1,4 @@
-package base.apptrailers.mobile.globant.com.moviesapp;
+package base.apptrailers.mobile.globant.com.moviesapp.provider;
 
 import android.content.UriMatcher;
 import android.net.Uri;

@@ -2,6 +2,7 @@ package base.apptrailers.mobile.globant.com.moviesapp.fragments;
 
 import android.annotation.TargetApi;
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -15,6 +16,7 @@ import android.view.ViewGroup;
 import java.util.Arrays;
 import java.util.List;
 
+import base.apptrailers.mobile.globant.com.moviesapp.activities.MovieDetailActivity;
 import base.apptrailers.mobile.globant.com.moviesapp.adapters.MoviesAdapter;
 import base.apptrailers.mobile.globant.com.moviesapp.R;
 
@@ -52,11 +54,6 @@ public class MovieListFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
-        if (!(getActivity() instanceof CallBackInterface)) {
-            throw new ClassCastException(getActivity().toString()
-                    + "must implement ICallback");
-        }
     }
 
     @Override
@@ -69,15 +66,20 @@ public class MovieListFragment extends Fragment {
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((CallBackInterface) getActivity()).loadMovieDetail();
+                Bundle bundle = new Bundle();
+
+                bundle.putString("name","Movie");
+                bundle.putString("director","Rober");
+                bundle.putString("year","2015");
+                bundle.putString("gender","Thriller");
+
+                Intent intent = new Intent(getActivity(),MovieDetailActivity.class);
+                intent.putExtra("extra",bundle);
+                getActivity().startActivity(intent);
             }
         };
 
         listAdapter = new MoviesAdapter(myDataset, listener);
         recyclerView.setAdapter(listAdapter);
-    }
-
-    public interface CallBackInterface {
-        void loadMovieDetail();
     }
 }

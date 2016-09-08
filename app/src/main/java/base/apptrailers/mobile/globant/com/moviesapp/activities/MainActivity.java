@@ -14,7 +14,7 @@ import base.apptrailers.mobile.globant.com.moviesapp.R;
 /**
  * Created by raul.striglio on 01/09/16.
  */
-public class MainActivity extends Activity implements MovieListFragment.CallBackInterface {
+public class MainActivity extends Activity {
 
     private RelativeLayout showRelative;
     private FrameLayout contentPanel;
@@ -36,20 +36,9 @@ public class MainActivity extends Activity implements MovieListFragment.CallBack
                 movieListFragment = MovieListFragment.newInstance();
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 ft.add(R.id.contentPanel, movieListFragment, movieListFragment.TAG);
-                ft.addToBackStack(movieListFragment.TAG);
                 ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
                 ft.commit();
             }
         });
-    }
-
-    @Override
-    public void loadMovieDetail() {
-        MovieDetailFragment movieDetailFragment = MovieDetailFragment.newInstance();
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.add(R.id.contentPanel, movieDetailFragment, movieDetailFragment.TAG);
-        ft.addToBackStack(movieDetailFragment.TAG);
-        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
-        ft.commit();
     }
 }

@@ -1,7 +1,8 @@
-package base.apptrailers.mobile.globant.com.moviesapp.Fragments;
+package base.apptrailers.mobile.globant.com.moviesapp.fragments;
 
 import android.annotation.TargetApi;
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,11 +13,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import base.apptrailers.mobile.globant.com.moviesapp.Adapters.MoviesAdapter;
+import base.apptrailers.mobile.globant.com.moviesapp.activities.MovieDetailActivity;
+import base.apptrailers.mobile.globant.com.moviesapp.adapters.MoviesAdapter;
 import base.apptrailers.mobile.globant.com.moviesapp.R;
 
 /**
@@ -33,11 +34,7 @@ public class MovieListFragment extends Fragment {
     protected RecyclerView.ItemDecoration itemDecoration;
 
     public static MovieListFragment newInstance() {
-
-        Bundle args = new Bundle();
-
         MovieListFragment fragment = new MovieListFragment();
-        fragment.setArguments(args);
         return fragment;
     }
 
@@ -51,10 +48,29 @@ public class MovieListFragment extends Fragment {
         mLayoutManager = new LinearLayoutManager(getContext(), OrientationHelper.VERTICAL, false);
         recyclerView.setLayoutManager(mLayoutManager);
 
-        myDataset = Arrays.asList("Movie1", "Movie2", "Movie3", "Movie4", "Movie5", "Movie6", "Movie7", "Movie8", "Movie9", "Movie10", "Movie11", "Movie12", "Movie13");
-        listAdapter = new MoviesAdapter(myDataset);
-        recyclerView.setAdapter(listAdapter);
-
         return rootView;
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        myDataset = Arrays.asList("Movie1", "Movie2", "Movie3", "Movie4",
+                "Movie5", "Movie6", "Movie7", "Movie8",
+                "Movie9", "Movie10", "Movie11", "Movie12", "Movie13");
+
+        View.OnClickListener listener = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MovieDetailActivity.start(getActivity(),"nombre","director",2014,"Thriller");
+            }
+        };
+
+        listAdapter = new MoviesAdapter(myDataset, listener);
+        recyclerView.setAdapter(listAdapter);
     }
 }

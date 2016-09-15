@@ -24,16 +24,6 @@
                 app:layout_scrollFlags="scroll|exitUntilCollapsed"
                 android:background="@drawable/movie_default">
 
-                <!--<android.support.v7.widget.Toolbar
-                    android:id="@+id/toolbar1"
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-                    app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-                    android:background="?attr/colorPrimary"
-                    android:minHeight="?attr/actionBarSize"
-                    app:layout_collapseMode="pin" />-->
-
             </android.support.design.widget.CollapsingToolbarLayout>
 
         </android.support.design.widget.AppBarLayout>

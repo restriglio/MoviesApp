@@ -2,6 +2,8 @@ package base.apptrailers.mobile.globant.com.moviesapp.activities;
 
 import android.app.Activity;
 import android.app.FragmentTransaction;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 
@@ -28,5 +30,18 @@ public class MovieDetailActivity extends Activity {
         ft.add(R.id.contentPanel, movieDetailFragment, movieDetailFragment.TAG);
         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
         ft.commit();
+    }
+
+    public static void start(Context c, String name, String director, int year, String gender){
+        Bundle bundle = new Bundle();
+
+        bundle.putString("name",name);
+        bundle.putString("director",director);
+        bundle.putInt("year",year);
+        bundle.putString("gender",gender);
+
+        Intent intent = new Intent(c,MovieDetailActivity.class);
+        intent.putExtra("extra",bundle);
+        c.startActivity(intent);
     }
 }

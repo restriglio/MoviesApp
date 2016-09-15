@@ -66,16 +66,7 @@ public class MovieListFragment extends Fragment {
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Bundle bundle = new Bundle();
-
-                bundle.putString("name","Movie");
-                bundle.putString("director","Rober");
-                bundle.putString("year","2015");
-                bundle.putString("gender","Thriller");
-
-                Intent intent = new Intent(getActivity(),MovieDetailActivity.class);
-                intent.putExtra("extra",bundle);
-                getActivity().startActivity(intent);
+                MovieDetailActivity.start(getActivity(),"nombre","director",2014,"Thriller");
             }
         };
 

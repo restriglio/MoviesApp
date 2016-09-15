@@ -4,10 +4,8 @@ import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 
-import base.apptrailers.mobile.globant.com.moviesapp.fragments.MovieDetailFragment;
 import base.apptrailers.mobile.globant.com.moviesapp.fragments.MovieListFragment;
 import base.apptrailers.mobile.globant.com.moviesapp.R;
 
@@ -17,7 +15,6 @@ import base.apptrailers.mobile.globant.com.moviesapp.R;
 public class MainActivity extends Activity {
 
     private RelativeLayout showRelative;
-    private FrameLayout contentPanel;
     private MovieListFragment movieListFragment;
 
     @Override

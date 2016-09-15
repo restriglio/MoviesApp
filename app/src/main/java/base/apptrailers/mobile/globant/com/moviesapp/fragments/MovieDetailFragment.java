@@ -14,8 +14,7 @@ import base.apptrailers.mobile.globant.com.moviesapp.R;
  */
 public class MovieDetailFragment extends Fragment {
 
-    public String TAG = "movieDetailFragment";
-    private View rootView;
+    public static String TAG = "movieDetailFragment";
 
     public static MovieDetailFragment newInstance() {
         MovieDetailFragment fragment = new MovieDetailFragment();
@@ -25,7 +24,6 @@ public class MovieDetailFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.movie_detail, container, false);
-        return rootView;
+        return inflater.inflate(R.layout.movie_detail, container, false);
     }
 }

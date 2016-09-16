@@ -2,7 +2,6 @@ package base.apptrailers.mobile.globant.com.moviesapp.fragments;
 
 import android.annotation.TargetApi;
 import android.app.Fragment;
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,12 +12,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.Arrays;
 import java.util.List;
 
-import base.apptrailers.mobile.globant.com.moviesapp.activities.MovieDetailActivity;
 import base.apptrailers.mobile.globant.com.moviesapp.adapters.MoviesAdapter;
 import base.apptrailers.mobile.globant.com.moviesapp.R;
+import base.apptrailers.mobile.globant.com.moviesapp.dataresources.MoviesDataSource;
+import base.apptrailers.mobile.globant.com.moviesapp.entity.Movie;
 
 /**
  * Created by raul.striglio on 01/09/16.
@@ -28,10 +27,10 @@ public class MovieListFragment extends Fragment {
     public String TAG = "movieListFragment";
     private View rootView;
     private RecyclerView recyclerView;
-    private MoviesAdapter listAdapter;
+    private MoviesAdapter moviesAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private List<String> myDataset;
-    protected RecyclerView.ItemDecoration itemDecoration;
+    private List<Movie> myDataset;
+    private MoviesDataSource moviesDataSource;
 
     public static MovieListFragment newInstance() {
         MovieListFragment fragment = new MovieListFragment();
@@ -59,18 +58,11 @@ public class MovieListFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        myDataset = Arrays.asList("Movie1", "Movie2", "Movie3", "Movie4",
-                "Movie5", "Movie6", "Movie7", "Movie8",
-                "Movie9", "Movie10", "Movie11", "Movie12", "Movie13");
 
-        View.OnClickListener listener = new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                MovieDetailActivity.start(getActivity(),"nombre","director",2014,"Thriller");
-            }
-        };
-
-        listAdapter = new MoviesAdapter(myDataset, listener);
-        recyclerView.setAdapter(listAdapter);
+        moviesDataSource = new MoviesDataSource(getActivity());
+        moviesDataSource.open();
+        myDataset = moviesDataSource.getAllMovies();
+        moviesAdapter = new MoviesAdapter(myDataset, getActivity());
+        recyclerView.setAdapter(moviesAdapter);
     }
 }

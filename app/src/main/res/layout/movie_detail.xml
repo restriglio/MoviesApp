@@ -49,7 +49,8 @@
                     android:layout_marginTop="@dimen/margin_ten"
                     android:text="@string/title_lbl"
                     android:textColor="@color/white"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textSize="@dimen/movie_detail_txt_size" />
 
                 <TextView
                     android:id="@+id/title"
@@ -60,7 +61,8 @@
                     android:layout_toEndOf="@+id/titleLbl"
                     android:layout_toRightOf="@+id/titleLbl"
                     android:text="test text"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/movie_detail_txt_size" />
 
                 <TextView
                     android:id="@+id/directorLbl"
@@ -71,7 +73,8 @@
                     android:layout_marginTop="@dimen/margin_ten"
                     android:text="@string/director_lbl"
                     android:textColor="@color/white"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textSize="@dimen/movie_detail_txt_size" />
 
                 <TextView
                     android:id="@+id/director"
@@ -82,7 +85,8 @@
                     android:layout_marginTop="@dimen/margin_ten"
                     android:layout_toRightOf="@+id/directorLbl"
                     android:text="test text"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/movie_detail_txt_size" />
 
                 <TextView
                     android:id="@+id/yearLbl"
@@ -93,7 +97,8 @@
                     android:layout_marginTop="@dimen/margin_ten"
                     android:text="@string/year_lbl"
                     android:textColor="@color/white"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textSize="@dimen/movie_detail_txt_size" />
 
                 <TextView
                     android:id="@+id/year"
@@ -104,7 +109,8 @@
                     android:layout_marginTop="@dimen/margin_ten"
                     android:layout_toRightOf="@+id/yearLbl"
                     android:text="test text"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/movie_detail_txt_size" />
 
                 <TextView
                     android:id="@+id/genderLbl"
@@ -115,7 +121,8 @@
                     android:layout_marginTop="@dimen/margin_ten"
                     android:text="@string/gender_lbl"
                     android:textColor="@color/white"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textSize="@dimen/movie_detail_txt_size" />
 
                 <TextView
                     android:id="@+id/gender"
@@ -126,7 +133,8 @@
                     android:layout_marginTop="@dimen/margin_ten"
                     android:layout_toRightOf="@+id/genderLbl"
                     android:text="test text"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/movie_detail_txt_size" />
 
 
                 <TextView
@@ -136,7 +144,8 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margin_ten"
                     android:text="@string/sample_text"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textSize="@dimen/movie_detail_desc_size" />
 
             </RelativeLayout>
 

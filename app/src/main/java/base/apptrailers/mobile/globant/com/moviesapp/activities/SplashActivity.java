@@ -8,12 +8,11 @@ import base.apptrailers.mobile.globant.com.moviesapp.api.MyApi;
 
 public class SplashActivity extends AppCompatActivity {
 
-    private MyApi myApi;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        MyApi myApi;
         myApi = new MyApi(this);
         myApi.saveData();
 

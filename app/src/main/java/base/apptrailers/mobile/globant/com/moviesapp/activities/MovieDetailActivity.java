@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 
 import base.apptrailers.mobile.globant.com.moviesapp.R;
+import base.apptrailers.mobile.globant.com.moviesapp.entity.Movie;
 import base.apptrailers.mobile.globant.com.moviesapp.fragments.MovieDetailFragment;
 
 /**
@@ -15,11 +16,8 @@ import base.apptrailers.mobile.globant.com.moviesapp.fragments.MovieDetailFragme
  */
 public class MovieDetailActivity extends Activity {
 
-    public static String BUNDLE_DIRECTOR = "name";
-    public static String BUNDLE_TITLE = "title";
-    public static String BUNDLE_GENDER = "gender";
-    public static String BUNDLE_YEAR = "year";
-    public static String BUNDLE_EXTRA = "extra";
+    public static String BUNDLE_ID = "id";
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -31,8 +29,8 @@ public class MovieDetailActivity extends Activity {
     protected void onStart() {
         super.onStart();
 
-        Bundle bundle = getIntent().getBundleExtra(BUNDLE_EXTRA);
-        MovieDetailFragment movieDetailFragment = MovieDetailFragment.newInstance();
+        Bundle bundle = getIntent().getExtras();
+        MovieDetailFragment movieDetailFragment = new MovieDetailFragment();
         movieDetailFragment.setArguments(bundle);
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.add(R.id.contentPanel, movieDetailFragment, movieDetailFragment.TAG);
@@ -40,16 +38,12 @@ public class MovieDetailActivity extends Activity {
         ft.commit();
     }
 
-    public static void start(Context c, String name, String director, int year, String gender) {
+    public static void start(Context c, long id) {
         Bundle bundle = new Bundle();
 
-        bundle.putString(BUNDLE_TITLE, name);
-        bundle.putString(BUNDLE_DIRECTOR, director);
-        bundle.putInt(BUNDLE_YEAR, year);
-        bundle.putString(BUNDLE_GENDER, gender);
-
         Intent intent = new Intent(c, MovieDetailActivity.class);
-        intent.putExtra(BUNDLE_EXTRA, bundle);
+        intent.putExtra(BUNDLE_ID,id);
+
         c.startActivity(intent);
     }
 }

@@ -1,6 +1,7 @@
 package base.apptrailers.mobile.globant.com.moviesapp.fragments;
 
 import android.app.Fragment;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -10,6 +11,9 @@ import android.widget.TextView;
 
 import base.apptrailers.mobile.globant.com.moviesapp.R;
 import base.apptrailers.mobile.globant.com.moviesapp.activities.MovieDetailActivity;
+import base.apptrailers.mobile.globant.com.moviesapp.dataresources.MoviesDataSource;
+import base.apptrailers.mobile.globant.com.moviesapp.dataresources.MyDatabaseHelper;
+import base.apptrailers.mobile.globant.com.moviesapp.entity.Movie;
 
 /**
  * Created by raul.striglio on 07/09/16.
@@ -24,11 +28,6 @@ public class MovieDetailFragment extends Fragment {
     private TextView gender;
     private View rootView;
 
-
-    public static MovieDetailFragment newInstance() {
-        MovieDetailFragment fragment = new MovieDetailFragment();
-        return fragment;
-    }
 
     @Nullable
     @Override
@@ -48,10 +47,21 @@ public class MovieDetailFragment extends Fragment {
         super.onStart();
 
         Bundle bundle = this.getArguments();
-        title.setText(bundle.getString(MovieDetailActivity.BUNDLE_TITLE));
-        director.setText(bundle.getString(MovieDetailActivity.BUNDLE_DIRECTOR));
-        year.setText(String.valueOf(bundle.getInt(MovieDetailActivity.BUNDLE_YEAR)));
-        gender.setText(bundle.getString(MovieDetailActivity.BUNDLE_GENDER));
+        long id = bundle.getLong(MovieDetailActivity.BUNDLE_ID);
+        MoviesDataSource moviesDataSource = new MoviesDataSource(getActivity());
+
+        moviesDataSource.open();
+        String[] whereValue = {String.valueOf(id)};
+        Cursor cursor = moviesDataSource.query(MoviesDataSource.allColumns, MyDatabaseHelper.COLUMN_ID + " =? ", whereValue);
+        cursor.moveToFirst();
+        Movie movie = moviesDataSource.cursorToMovie(cursor);
+        cursor.close();
+        moviesDataSource.close();
+
+        title.setText(movie.getName());
+        director.setText(movie.getDirector());
+        year.setText(String.valueOf(movie.getYear()));
+        gender.setText(movie.getGender());
 
     }
 }

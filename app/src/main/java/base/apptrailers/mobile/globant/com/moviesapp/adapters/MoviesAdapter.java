@@ -24,11 +24,13 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView infoText;
+        public TextView movieId;
         public CardView cardView;
 
         public ViewHolder(View v) {
             super(v);
             infoText = (TextView) v.findViewById(R.id.info_text);
+            movieId = (TextView) v.findViewById(R.id.movie_id);
             cardView = (CardView) v.findViewById(R.id.card_view);
         }
     }
@@ -48,15 +50,12 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
         holder.infoText.setText(mDataset.get(position).getName());
+        holder.movieId.setText(String.valueOf(mDataset.get(position).getId()));
 
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MovieDetailActivity.start(context,
-                        mDataset.get(position).getName(),
-                        mDataset.get(position).getDirector(),
-                        mDataset.get(position).getYear(),
-                        mDataset.get(position).getGender());
+                MovieDetailActivity.start(context,mDataset.get(position).getId());
             }
         };
 

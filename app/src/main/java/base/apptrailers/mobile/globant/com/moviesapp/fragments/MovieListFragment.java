@@ -27,7 +27,7 @@ public class MovieListFragment extends Fragment {
     public String TAG = "movieListFragment";
     private View rootView;
     private RecyclerView recyclerView;
-    private MoviesAdapter MoviesAdapter;
+    private MoviesAdapter moviesAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private List<Movie> myDataset;
     private MoviesDataSource moviesDataSource;
@@ -62,7 +62,7 @@ public class MovieListFragment extends Fragment {
         moviesDataSource = new MoviesDataSource(getActivity());
         moviesDataSource.open();
         myDataset = moviesDataSource.getAllMovies();
-        MoviesAdapter = new MoviesAdapter(myDataset, getActivity());
-        recyclerView.setAdapter(MoviesAdapter);
+        moviesAdapter = new MoviesAdapter(myDataset, getActivity());
+        recyclerView.setAdapter(moviesAdapter);
     }
 }

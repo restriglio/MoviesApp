@@ -81,7 +81,7 @@ public class MoviesDataSource implements IAccessData {
         return movies;
     }
 
-    private Movie cursorToMovie(Cursor cursor) {
+    public Movie cursorToMovie(Cursor cursor) {
         Movie movie = new Movie();
         movie.setId(cursor.getLong(0));
         movie.setName(cursor.getString(1));

@@ -15,6 +15,11 @@ import base.apptrailers.mobile.globant.com.moviesapp.fragments.MovieDetailFragme
  */
 public class MovieDetailActivity extends Activity {
 
+    public static String BUNDLE_DIRECTOR = "name";
+    public static String BUNDLE_TITLE = "title";
+    public static String BUNDLE_GENDER = "gender";
+    public static String BUNDLE_YEAR = "year";
+    public static String BUNDLE_EXTRA = "extra";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -25,23 +30,26 @@ public class MovieDetailActivity extends Activity {
     @Override
     protected void onStart() {
         super.onStart();
+
+        Bundle bundle = getIntent().getBundleExtra(BUNDLE_EXTRA);
         MovieDetailFragment movieDetailFragment = MovieDetailFragment.newInstance();
+        movieDetailFragment.setArguments(bundle);
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.add(R.id.contentPanel, movieDetailFragment, movieDetailFragment.TAG);
         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
         ft.commit();
     }
 
-    public static void start(Context c, String name, String director, int year, String gender){
+    public static void start(Context c, String name, String director, int year, String gender) {
         Bundle bundle = new Bundle();
 
-        bundle.putString("name",name);
-        bundle.putString("director",director);
-        bundle.putInt("year",year);
-        bundle.putString("gender",gender);
+        bundle.putString(BUNDLE_TITLE, name);
+        bundle.putString(BUNDLE_DIRECTOR, director);
+        bundle.putInt(BUNDLE_YEAR, year);
+        bundle.putString(BUNDLE_GENDER, gender);
 
-        Intent intent = new Intent(c,MovieDetailActivity.class);
-        intent.putExtra("extra",bundle);
+        Intent intent = new Intent(c, MovieDetailActivity.class);
+        intent.putExtra(BUNDLE_EXTRA, bundle);
         c.startActivity(intent);
     }
 }
